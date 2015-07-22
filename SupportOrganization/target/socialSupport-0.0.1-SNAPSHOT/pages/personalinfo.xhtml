@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html
+        xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:p="http://primefaces.org/ui"
+        xmlns:f="http://xmlns.jcp.org/jsf/core"
+        xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition template="/pages/BasicTemplate.xhtml">
+    <ui:define name="content">
+        <h:form id="form">
+            <p:growl id="msgs" showDetail="true"/>
+            <p:dataTable id="personalInfo1" var="personalInfo" value="#{personalInfoListController.personalInfos}" editable="true"
+                         editMode="cell" widgetVar="personalInfoTable"
+                         scrollable="true"  scrollWidth="100%"
+                         paginator="true" paginatorTemplate="{Add}" paginatorPosition="Top"
+                         filteredValue="#{personalInfoListController.filteredPersonalInfos}" >
+                <f:facet name="{Add}" >
+                    <h:commandLink update="personalInfo1" action="#{personalInfoListController.add}" >
+                        <p:graphicImage value="Img/add.gif" width="24" style="border: 5px" />
+                    </h:commandLink>
+                </f:facet>
+                <p:ajax event="cellEdit" listener="#{personalInfoListController.onCellEdit}" update=":form:msgs personalInfo1" />
+
+                <p:column filterBy="#{personalInfo.fio}" sortBy="#{personalInfo.fio}" filterMatchMode="contains" headerText="Fio" id="Fio" style="width: 120px" >
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{personalInfo.fio}" /></f:facet>
+                        <f:facet name="input"><p:inputText  value="#{personalInfo.fio}"   label="fio"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column headerText="birthdate" sortBy="#{personalInfo.birthdate}"  id="Birthdate" style="width: 120px" >
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{personalInfo.birthdate}" >
+                                <f:convertDateTime type="date" pattern="dd-MM-yyyy"/>
+                            </h:outputText>
+                        </f:facet>
+
+                        <f:facet name="input">
+                            <p:inputText value="#{personalInfo.birthdate}"  label="birthdate"    >
+                                <f:convertDateTime type="date" pattern="dd-MM-yyyy"/>
+                            </p:inputText>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column headerText="sex" id="Sex" sortBy="#{personalInfo.sex}" style="width: 25px" >
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{personalInfo.sex}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{personalInfo.sex}"     label="sex"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column filterBy="#{personalInfo.education}" sortBy="#{personalInfo.education}"  filterMatchMode="contains"  headerText="education" id="Education" style="width: 110px">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{personalInfo.education}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{personalInfo.education}"   label="education"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column filterBy="#{personalInfo.talents}" sortBy="#{personalInfo.talents}" filterMatchMode="contains" headerText="talents" id="Talents" style="width: 110px">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{personalInfo.talents}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{personalInfo.talents}"   label="talents"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column filterBy="#{personalInfo.info}" sortBy="#{personalInfo.info}" filterMatchMode="contains" headerText="info" id="Info">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{personalInfo.info}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{personalInfo.info}"  label="info"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column headerText="NotComing" id="NotComing" style="width: 100px">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{personalInfo.notComing}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{personalInfo.notComing}"  label="NotComing"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column filterBy="#{personalInfo.jobPlace}" sortBy="#{personalInfo.jobPlace}" filterMatchMode="contains" headerText="jobPlace" id="JobPlace" style="width: 80px" >
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{personalInfo.jobPlace}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{personalInfo.jobPlace}" style="width:100%"  label="jobPlace"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column filterBy="#{personalInfo.homeAdress}" sortBy="#{personalInfo.homeAdress}" filterMatchMode="contains" headerText="homeAdress" id="HomeAdress" style="width: 120px">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{personalInfo.homeAdress}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{personalInfo.homeAdress}" label="homeAdress"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column filterBy="#{personalInfo.district}" sortBy="#{personalInfo.district}" filterMatchMode="contains" headerText="district" id="District" style="width: 80px">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{personalInfo.district}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{personalInfo.district}"  label="district"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column filterBy="#{personalInfo.mobPhone}" sortBy="#{personalInfo.mobPhone}" filterMatchMode="contains" headerText="mobPhone" id="MobPhone" style="width: 120px">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{personalInfo.mobPhone}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{personalInfo.mobPhone}"   label="mobPhone"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column filterBy="#{personalInfo.email}" sortBy="#{personalInfo.email}" filterMatchMode="contains" headerText="email" id="Email" style="width: 120px" >
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{personalInfo.email}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{personalInfo.email}"  label="email"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column filterBy="#{personalInfo.hobby}" sortBy="#{personalInfo.hobby}" filterMatchMode="contains" headerText="hobby" id="Hobby"  style="width: 120px" >
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{personalInfo.hobby}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{personalInfo.hobby}"   label="hobby"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column filterBy="#{personalInfo.profession}" sortBy="#{personalInfo.profession}" filterMatchMode="contains" headerText="profession" id="Profession"  style="width: 80px">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{personalInfo.profession}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{personalInfo.profession}"   label="profession"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column filterBy="#{personalInfo.helpSociety}" sortBy="#{personalInfo.helpSociety}" filterMatchMode="contains" headerText="helpSociety" id="HelpSociety" style="width: 100px">
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{personalInfo.helpSociety}" /></f:facet>
+                        <f:facet name="input"><p:inputText value="#{personalInfo.helpSociety}"    label="helpSociety"/></f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column filterBy="#{personalInfo.idMemberOfSociety.fio}" sortBy="#{personalInfo.idMemberOfSociety.fio}" filterMatchMode="exact" headerText="idMemberOfSociety" id="IdMemberOfSociety" style="width: 120px">
+                    <f:facet name="filter">
+                        <p:selectOneMenu onchange="PF('personalInfoTable').filter()"  filter="true" label="select FIO">
+                            <f:selectItem itemLabel="unselect" itemValue="#{null}" noSelectionOption="true"/>
+                            <f:selectItems value="#{personalInfoListController.memberOfSociety}" var="personalInfo" itemLabel="#{personalInfo.fio}" itemValue="#{personalInfo.fio}" />
+                       </p:selectOneMenu>
+                    </f:facet>
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText value="#{personalInfo.idMemberOfSociety.fio}" /></f:facet>
+                        <f:facet name="input">
+                            <h:selectOneMenu value="personalInfo">
+                                <f:selectItem itemLabel="Select One" itemValue=""  />
+                                <f:selectItems value="#{personalInfoListController.personalInfos}" var="personalInfo" itemLabel="#{personalInfo.fio}" itemValue="#{personalInfo.id}" />
+                            </h:selectOneMenu>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column filterBy="#{personalInfo.idSignOfKinsman.name}" sortBy="#{personalInfo.idSignOfKinsman.name}" filterMatchMode="exact" headerText="Тип родства" id="IdSignOfKinsman" style="width: 120px" >
+                    <f:facet name="filter" >
+                        <p:selectOneMenu onchange="PF('personalInfoTable').filter()"  filter="true" label="select type">
+                            <f:selectItem itemLabel="unselect" itemValue="#{null}" noSelectionOption="true"/>
+                            <f:selectItems value="#{signOfKinsmanListController.signOfKinsmans}" var="signOfKinsman" itemLabel="#{signOfKinsman.name}" itemValue="#{signOfKinsman.name}" />
+                        </p:selectOneMenu>
+                    </f:facet>
+                    <p:cellEditor>
+                        <f:facet name="output"><h:outputText  value="#{personalInfo.idSignOfKinsman.name}" /></f:facet>
+                        <f:facet name="input">
+                        <h:selectOneMenu value="signOfKinsman">
+                                <f:selectItem itemLabel="Select One" itemValue=""  />
+                                <f:selectItems value="#{signOfKinsmanListController.signOfKinsmans}" var="signOfKinsman" itemLabel="#{signOfKinsman.name}" itemValue="#{signOfKinsman}" />
+                        </h:selectOneMenu>
+                        </f:facet>
+                    </p:cellEditor>
+                </p:column>
+                <p:column headerText="Язык" id="RelationLanguagePersons" style="width: 120px" >
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <!--<h:outputText value="#{personalInfo.relationLanguagePersons}"/>-->
+                            <ui:repeat value="#{personalInfo.relationLanguagePersons}" var="relationLanguagePerson">
+                            <h:outputText value="#{relationLanguagePerson.language.name}"/>
+                            </ui:repeat>
+                        </f:facet>
+                        <f:facet name="input">
+                            <p:selectCheckboxMenu id="listLanguage" value="#{personalInfo.relationLanguagePersons}" label="Язык"
+                                           filter="true" filterMatchMode="startsWith" panelStyle="width:250px"
+                                           valueChangeListener="#{personalInfoListController.onCellEdit}">
+                            <f:selectItems value="#{languageListController.languages}"
+                                               var="language" itemLabel="#{language.name}"
+                                               itemValue="#{relationLanguagePerson.language}" />
+                            </p:selectCheckboxMenu>
+                         </f:facet>
+                    </p:cellEditor>
+                 </p:column>
+                <p:column headerText="Удалить" width="60" >
+                    <h:commandButton value="delete" image="Img/delete.gif"
+                                     action="#{personalInfoListController.remove(personalInfo)}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>
