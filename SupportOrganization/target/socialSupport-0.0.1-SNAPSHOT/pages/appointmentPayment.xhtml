@@ -23,7 +23,7 @@
                 <p:ajax event="cellEdit" listener="#{appointmentPaymentListController.onCellEdit}"
                         update=":form:msgs appointmentPayment1"/>
 
-                <p:column filterBy="${appointmentPayment.name}" sortBy="#{appointmentPayment.name}" filterMatchMode="contains" headerText="Название" id="Name" style="width: 120px">
+                <p:column filterBy="${appointmentPayment.name}" sortBy="#{appointmentPayment.name}" filterMatchMode="contains" headerText="Name" id="Name" style="width: 120px">
                     <p:cellEditor>
 
                         <f:facet name="output"> <h:outputText value="#{appointmentPayment.name}"/></f:facet>
@@ -31,7 +31,7 @@
                                                             label="name"/></f:facet>
                     </p:cellEditor>
                 </p:column>
-                <p:column style="width: 120px" >
+                <p:column headerText="Delete" style="width: 120px" >
                     <h:commandButton value="delete" image="Img/delete.gif"
                                      action="#{appointmentPaymentListController.remove(appointmentPayment)}"/>
                 </p:column>

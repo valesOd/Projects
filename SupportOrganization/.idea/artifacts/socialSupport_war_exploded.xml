@@ -54,7 +54,7 @@
           <element id="library" level="project" name="Maven: org.javassist:javassist:3.18.1-GA" />
           <element id="library" level="project" name="Maven: com.zaxxer:HikariCP:2.2.5" />
           <element id="library" level="project" name="Maven: org.hsqldb:hsqldb:2.3.2" />
-          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.14.8" />
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.16.2" />
           <element id="library" level="project" name="Maven: javax.inject:javax.inject:1" />
           <element id="library" level="project" name="Maven: org.primefaces:primefaces:5.1" />
           <element id="library" level="project" name="Maven: org.glassfish:javax.faces:2.2.8" />

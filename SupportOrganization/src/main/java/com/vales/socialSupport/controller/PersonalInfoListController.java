@@ -101,12 +101,12 @@ public class PersonalInfoListController implements Serializable {
                     break;
                 case "SignOfKinsman":
                     String[] valueSignOfKinsman = newValue.toString().split(" ");
-                    changeablePersonalInfo.setIdSignOfKinsman(new SignOfKinsman(Integer.parseInt(valueSignOfKinsman[0]), valueSignOfKinsman[1]));
+                    changeablePersonalInfo.setSignOfKinsman(new SignOfKinsman(Integer.parseInt(valueSignOfKinsman[0]), valueSignOfKinsman[1]));
                     break;
                 case "PersonalInfo":
                     for(PersonalInfo personalInfo : personalInfos){
                         if(personalInfo.getId().toString().contains(newValue.toString())){
-                            changeablePersonalInfo.setIdMemberOfSociety(personalInfo);
+                            changeablePersonalInfo.setMemberOfSociety(personalInfo);
                             break;
                         }
                     }
@@ -145,8 +145,8 @@ public class PersonalInfoListController implements Serializable {
     public Set<PersonalInfo> getMemberOfSociety(){
         Set<PersonalInfo> listMemberOfSociety = new HashSet<PersonalInfo>();
         for (PersonalInfo personalInfo : personalInfos) {
-            if (personalInfo.getIdMemberOfSociety() != null)
-                listMemberOfSociety.add(personalInfo.getIdMemberOfSociety());
+            if (personalInfo.getMemberOfSociety() != null)
+                listMemberOfSociety.add(personalInfo.getMemberOfSociety());
         }
         return listMemberOfSociety;
     }

@@ -69,7 +69,7 @@
     <orderEntry type="library" name="Maven: org.javassist:javassist:3.18.1-GA" level="project" />
     <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:2.2.5" level="project" />
     <orderEntry type="library" name="Maven: org.hsqldb:hsqldb:2.3.2" level="project" />
-    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.14.8" level="project" />
+    <orderEntry type="library" name="Maven: org.projectlombok:lombok:1.16.2" level="project" />
     <orderEntry type="library" name="Maven: javax.inject:javax.inject:1" level="project" />
     <orderEntry type="library" name="Maven: org.primefaces:primefaces:5.1" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish:javax.faces:2.2.8" level="project" />

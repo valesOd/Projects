@@ -4,16 +4,13 @@
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/application.properties" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/css" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/fonts" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/index.jsp" charset="windows-1251" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/js" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/login.jsp" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/pages" charset="windows-1251" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/pages/BasicTemplate.xhtml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/pages/Img" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/pages/appointmentPayment.xhtml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/pages/index.xhtml" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/pages/index2.xhtml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/pages/language.xhtml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/pages/payment.xhtml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/pages/personalinfo.xhtml" charset="UTF-8" />

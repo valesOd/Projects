@@ -25,6 +25,13 @@
         <processorPath useClasspath="true" />
         <module name="sitemonitoring-tutorial" />
       </profile>
+      <profile default="false" name="Annotation profile for socialSupport" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="socialSupport" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="sitemonitoring-tutorial" target="1.8" />
