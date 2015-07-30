@@ -1,18 +1,24 @@
 package com.vales.socialSupport.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import javax.persistence.Entity;
 import javax.persistence.*;
+import javax.sql.rowset.serial.SerialArray;
+import java.io.Serializable;
 import java.util.Set;
 
 @Entity
 @Table(name="sign_of_kinsman")
-public class SignOfKinsman  {
+@Setter
+@Getter
+public class SignOfKinsman  implements ParentEntity,Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_sign_of_kinsman")
     private Integer id;
     @Column(name="name_sign_of_kinsman")
     private String name;
-
     @OneToMany
     @JoinColumn(name="id_sign_of_kinsman")
     private Set<PersonalInfo> personalInfos;
@@ -25,23 +31,7 @@ public class SignOfKinsman  {
         this.name = name;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Override
+       @Override
     public String toString() {
         return id + " " +name ;
     }

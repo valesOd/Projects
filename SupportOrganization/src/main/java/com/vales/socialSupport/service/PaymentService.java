@@ -9,21 +9,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PaymentService {
+public class PaymentService extends ParentService {
 
 	@Autowired
 	private PaymentRepository paymentRepository;
 
-	public List<Payment> findAll() {
-        return paymentRepository.findAll();
+	@Override
+	protected void initializationRepository() {
+		setParentService(paymentRepository);
 	}
-
-	public void save(Payment payment) {
-		paymentRepository.save(payment);
-	}
-
-	public void remove(Payment payment) {
-		paymentRepository.delete(payment);
-	}
-
 }

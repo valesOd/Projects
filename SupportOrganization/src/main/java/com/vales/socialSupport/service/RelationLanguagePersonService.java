@@ -9,21 +9,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class RelationLanguagePersonService {
+public class RelationLanguagePersonService extends ParentService {
 
 	@Autowired
 	private RelationLanguagePersonRepository relationLanguagePersonRepository;
 
-	public List<RelationLanguagePerson> findAll() {
-        return relationLanguagePersonRepository.findAll();
+	@Override
+	protected void initializationRepository() {
+		setParentService(relationLanguagePersonRepository);
 	}
-
-	public void save(RelationLanguagePerson relationLanguagePerson) {
-		relationLanguagePersonRepository.save(relationLanguagePerson);
-	}
-
-	public void remove(RelationLanguagePerson relationLanguagePerson) {
-		relationLanguagePersonRepository.delete(relationLanguagePerson);
-	}
-
 }

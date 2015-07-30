@@ -9,11 +9,11 @@
     <ui:define name="content">
         <h:form id="form" >
             <p:growl id="msgs" showDetail="true"/>
-            <p:dataTable  id="appointmentPayment1" var="appointmentPayment" value="#{appointmentPaymentListController.appointmentPayments}" editable="true"
+            <p:dataTable  id="appointmentPayment1" var="appointmentPayment" value="#{appointmentPaymentListController.entitys}" editable="true"
                           editMode="cell" widgetVar="appointmentPaymentTable"
                           scrollable="true"   scrollHeight="650"
                           paginator="true" paginatorTemplate="{Add}" paginatorPosition="Top"
-                          filteredValue="#{appointmentPaymentListController.filteredAppointmentPayments}"
+                          filteredValue="#{appointmentPaymentListController.entitys}"
                     >
                 <f:facet name="{Add}">
                     <h:commandLink update="appointmentPayment1" action="#{appointmentPaymentListController.add}">

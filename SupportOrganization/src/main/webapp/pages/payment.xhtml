@@ -10,7 +10,7 @@
         <h:form id="form">
             <p:growl id="msgs" showDetail="true"/>
 
-            <p:dataTable id="payment1" var="payment" value="#{paymentListController.payments}" editable="true"
+            <p:dataTable id="payment1" var="payment" value="#{paymentListController.entitys}" editable="true"
                          editMode="cell" widgetVar="paymentTable"
                          scrollable="true"  scrollWidth="100%" scrollHeight="650"
                          paginator="true" paginatorTemplate="{Add}" paginatorPosition="Top">
@@ -87,7 +87,7 @@
                         <f:facet name="input">
                             <h:selectOneMenu value="personalInfo">
                                 <f:selectItem itemLabel="Choose" itemValue=""  />
-                                <f:selectItems value="#{personalInfoListController.personalInfos}" var="personalInfo" itemLabel="#{personalInfo.fio}" itemValue="#{personalInfo.id}" />
+                                <f:selectItems value="#{personalInfoListController.entitys}" var="personalInfo" itemLabel="#{personalInfo.fio}" itemValue="#{personalInfo.id}" />
                             </h:selectOneMenu>
                         </f:facet>
                     </p:cellEditor>
@@ -96,7 +96,7 @@
                     <f:facet name="filter" >
                         <p:selectOneMenu onchange="PF('paymentTable').filter()"  filter="true" label="select type">
                             <f:selectItem itemLabel="Choose" itemValue="#{null}" noSelectionOption="true"/>
-                            <f:selectItems value="#{appointmentPaymentListController.appointmentPayments}" var="appointmentPayment" itemLabel="#{appointmentPayment.name}" itemValue="#{appointmentPayment}" />
+                            <f:selectItems value="#{appointmentPaymentListController.entitys}" var="appointmentPayment" itemLabel="#{appointmentPayment.name}" itemValue="#{appointmentPayment}" />
                         </p:selectOneMenu>
                     </f:facet>
                     <p:cellEditor>
@@ -104,7 +104,7 @@
                         <f:facet name="input">
                             <h:selectOneMenu value="appointmentPayment">
                                 <f:selectItem itemLabel="Choose" itemValue=""  />
-                                <f:selectItems value="#{appointmentPaymentListController.appointmentPayments}" var="appointmentPayment" itemLabel="#{appointmentPayment.name}" itemValue="#{appointmentPayment}" />
+                                <f:selectItems value="#{appointmentPaymentListController.entitys}" var="appointmentPayment" itemLabel="#{appointmentPayment.name}" itemValue="#{appointmentPayment}" />
                             </h:selectOneMenu>
                         </f:facet>
                     </p:cellEditor>

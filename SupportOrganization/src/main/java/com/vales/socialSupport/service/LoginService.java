@@ -9,22 +9,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class LoginService {
+public class LoginService extends ParentService {
 
 	@Autowired
 	private LoginRepository loginRepository;
 
-	public List<Login> findAll() {
-        return loginRepository.findAll();
+	@Override
+	protected void initializationRepository() {
+		setParentService(loginRepository);
 	}
-
-	public void save(Login login) {
-		loginRepository.save(login);
-	}
-
-	public void remove(Login login) {
-		loginRepository.delete(login);
-	}
-
 
 }

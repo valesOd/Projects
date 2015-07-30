@@ -8,21 +8,13 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SignOfKinsmanService {
+public class SignOfKinsmanService extends ParentService{
 
 	@Autowired
 	private SignOfKinsmanRepository signOfKinsmanRepository;
 
-	public List<SignOfKinsman> findAll() {
-        return signOfKinsmanRepository.findAll();
+	@Override
+	protected void initializationRepository() {
+		setParentService(signOfKinsmanRepository);
 	}
-
-	public void save(SignOfKinsman signOfKinsman) {
-		signOfKinsmanRepository.save(signOfKinsman);
-	}
-
-	public void remove(SignOfKinsman signOfKinsman) {
-		signOfKinsmanRepository.delete(signOfKinsman);
-	}
-
 }

@@ -1,15 +1,23 @@
 package com.vales.socialSupport.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.persistence.Entity;
 import javax.persistence.*;
+import javax.persistence.Table;
 import java.io.Serializable;
+
 
 @Entity
 @Table(name="appointment_payment")
-public class AppointmentPayment implements Serializable {
+@Getter
+@Setter
+public class AppointmentPayment implements ParentEntity,Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_appointment_payment")
-    private int id;
+    private Integer id;
     private String name ="";
 
     public AppointmentPayment() {
@@ -18,22 +26,6 @@ public class AppointmentPayment implements Serializable {
     public AppointmentPayment(int id, String name) {
         this.id=id;
         this.name=name;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     @Override

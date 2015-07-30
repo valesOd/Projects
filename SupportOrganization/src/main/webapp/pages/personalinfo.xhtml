@@ -9,11 +9,11 @@
     <ui:define name="content">
         <h:form id="form">
             <p:growl id="msgs" showDetail="true"/>
-            <p:dataTable id="personalInfo1" var="personalInfo" value="#{personalInfoListController.personalInfos}" editable="true"
+            <p:dataTable id="personalInfo1" var="personalInfo" value="#{personalInfoListController.entitys}" editable="true"
                          editMode="cell" widgetVar="personalInfoTable"
                          scrollable="true"  scrollWidth="100%"
                          paginator="true" paginatorTemplate="{Add}" paginatorPosition="Top"
-                         filteredValue="#{personalInfoListController.filteredPersonalInfos}" >
+                         filteredValue="#{personalInfoListController.filteredEntity}" >
                 <f:facet name="{Add}" >
                     <h:commandLink update="personalInfo1" action="#{personalInfoListController.add}" >
                         <p:graphicImage value="Img/add.gif" width="24" style="border: 5px" />
@@ -132,7 +132,7 @@
                         <f:facet name="input">
                             <h:selectOneMenu value="personalInfo">
                                 <f:selectItem itemLabel="Select One" itemValue=""  />
-                                <f:selectItems value="#{personalInfoListController.personalInfos}" var="personalInfo" itemLabel="#{personalInfo.fio}" itemValue="#{personalInfo.id}" />
+                                <f:selectItems value="#{personalInfoListController.entitys}" var="personalInfo" itemLabel="#{personalInfo.fio}" itemValue="#{personalInfo.id}" />
                             </h:selectOneMenu>
                         </f:facet>
                     </p:cellEditor>
@@ -141,7 +141,7 @@
                     <f:facet name="filter" >
                         <p:selectOneMenu onchange="PF('personalInfoTable').filter()"  filter="true" label="select type">
                             <f:selectItem itemLabel="unselect" itemValue="#{null}" noSelectionOption="true"/>
-                            <f:selectItems value="#{signOfKinsmanListController.signOfKinsmans}" var="signOfKinsman" itemLabel="#{signOfKinsman.name}" itemValue="#{signOfKinsman.name}" />
+                            <f:selectItems value="#{signOfKinsmanListController.entitys}" var="signOfKinsman" itemLabel="#{signOfKinsman.name}" itemValue="#{signOfKinsman.name}" />
                         </p:selectOneMenu>
                     </f:facet>
                     <p:cellEditor>
@@ -149,7 +149,7 @@
                         <f:facet name="input">
                         <h:selectOneMenu value="signOfKinsman">
                                 <f:selectItem itemLabel="Select One" itemValue=""  />
-                                <f:selectItems value="#{signOfKinsmanListController.signOfKinsmans}" var="signOfKinsman" itemLabel="#{signOfKinsman.name}" itemValue="#{signOfKinsman}" />
+                                <f:selectItems value="#{signOfKinsmanListController.entitys}" var="signOfKinsman" itemLabel="#{signOfKinsman.name}" itemValue="#{signOfKinsman}" />
                         </h:selectOneMenu>
                         </f:facet>
                     </p:cellEditor>
@@ -166,7 +166,7 @@
                             <p:selectCheckboxMenu id="listLanguage" value="#{personalInfo.relationLanguagePersons}" label="Language"
                                            filter="true" filterMatchMode="startsWith" panelStyle="width:250px"
                                            valueChangeListener="#{personalInfoListController.onCellEdit}">
-                            <f:selectItems value="#{languageListController.languages}"
+                            <f:selectItems value="#{languageListController.entitys}"
                                                var="language" itemLabel="#{language.name}"
                                                itemValue="#{relationLanguagePerson.language}" />
                             </p:selectCheckboxMenu>

@@ -1,5 +1,8 @@
 package com.vales.socialSupport.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import javax.persistence.Entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -7,11 +10,13 @@ import java.util.*;
 
 @Entity
 @Table(name="payment")
-public class Payment implements Serializable {
+@Getter
+@Setter
+public class Payment implements ParentEntity,Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_payment")
-    private int id;
+    private Integer id;
     private Calendar date ;
     private BigDecimal amount=new BigDecimal(0);
     @Column(name = "date_from")
@@ -41,30 +46,6 @@ public class Payment implements Serializable {
 
     public Payment(){
 
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public PersonalInfo getPersonalInfo() {
-        return personalInfo;
-    }
-
-    public void setPersonalInfo(PersonalInfo personalInfo) {
-        this.personalInfo = personalInfo;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
     }
 
     public Date getDate() {

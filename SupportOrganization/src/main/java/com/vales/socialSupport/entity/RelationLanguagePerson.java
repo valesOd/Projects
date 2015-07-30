@@ -1,15 +1,20 @@
 package com.vales.socialSupport.entity;
 
+import lombok.Getter;
+import lombok.Setter;
+import javax.persistence.Entity;
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
 @Table(name="relation_language_person")
-public class RelationLanguagePerson implements Serializable {
+@Getter
+@Setter
+public class RelationLanguagePerson implements ParentEntity,Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="id_people_language")
-    private int id;
+    private Integer id;
 
     @ManyToOne
     @JoinColumn(name="id_language")
@@ -18,30 +23,6 @@ public class RelationLanguagePerson implements Serializable {
     @ManyToOne
     @JoinColumn(name="personal_info")
     private PersonalInfo personalInfo;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Language getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(Language language) {
-        this.language = language;
-    }
-
-    public PersonalInfo getPersonalInfo() {
-        return personalInfo;
-    }
-
-    public void setPersonalInfo(PersonalInfo personalInfo) {
-        this.personalInfo = personalInfo;
-    }
 
     @Override
     public String toString() {

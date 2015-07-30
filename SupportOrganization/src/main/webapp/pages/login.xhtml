@@ -10,7 +10,7 @@
         <h:form id="form">
             <p:growl id="msgs" showDetail="true"/>
 
-            <p:dataTable id="login1" var="login" value="#{loginListController.logins}" editable="true"
+            <p:dataTable id="login1" var="login" value="#{loginListController.entitys}" editable="true"
                          editMode="cell" widgetVar="loginTable"
                          scrollable="true" scrollWidth="100%" scrollHeight="650"
                          paginator="true" paginatorTemplate="{Add}" paginatorPosition="Top">
@@ -47,14 +47,14 @@
                         <f:facet name="input">
                             <h:selectOneMenu value="personalInfo">
                                 <f:selectItem itemLabel="Choose" itemValue=""  />
-                                <f:selectItems value="#{personalInfoListController.personalInfos}" var="personalInfo" itemLabel="#{personalInfo.fio}" itemValue="#{personalInfo.id}" />
+                                <f:selectItems value="#{personalInfoListController.entitys}" var="personalInfo" itemLabel="#{personalInfo.fio}" itemValue="#{personalInfo.id}" />
                             </h:selectOneMenu>
                         </f:facet>
                     </p:cellEditor>
                 </p:column>
                 <p:column headerText="Delete" width="60" >
                     <h:commandButton value="delete" image="Img/delete.gif"
-                                     action="#{languageListController.remove(language)}"/>
+                                     action="#{languageListController.remove(login)}"/>
                 </p:column>
             </p:dataTable>
         </h:form>

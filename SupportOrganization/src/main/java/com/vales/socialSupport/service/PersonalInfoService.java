@@ -10,21 +10,13 @@ import java.util.List;
 
 @Service
 
-public class PersonalInfoService {
+public class PersonalInfoService extends ParentService {
 
 	@Autowired
 	private PersonalInfoRepository personalInfoRepository;
 
-	public List<PersonalInfo> findAll() {
-        return personalInfoRepository.findAll();
+	@Override
+	protected void initializationRepository() {
+		setParentService(personalInfoRepository);
 	}
-
-	public void save(PersonalInfo personalInfo) {
-		personalInfoRepository.save(personalInfo);
-	}
-
-	public void remove(PersonalInfo personalInfo) {
-		personalInfoRepository.delete(personalInfo);
-	}
-
 }
